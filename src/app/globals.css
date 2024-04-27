@@ -31,28 +31,21 @@ body {
     text-wrap: balance;
   }
 } */
-
-/* 
-.largeImageContainer {
-  position: relative;
-  width: 500px;
-  height: 500px;
+@keyframes rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg) translate(250px) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg) translate(250px) rotate(-360deg);
+  }
 }
-
-.smallImageContainer {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+@media screen and (max-width:500px) {
+  @keyframes rotate {
+    from {
+      transform: translate(-50%, -50%) rotate(0deg) translate(150px) rotate(0deg);
+    }
+    to {
+      transform: translate(-50%, -50%) rotate(360deg) translate(150px) rotate(-360deg);
+    }
+  }
 }
-
-.smallImageWrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(var(--rotation));
-}
-
-.smallImage {
-  border-radius: 50%;
-} */

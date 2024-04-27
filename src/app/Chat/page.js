@@ -14,14 +14,21 @@ const page = () => {
       <h1 className="grow">Chating with PushpaRaj</h1>
       </div>
       <IconSideMenu isOpen={open}></IconSideMenu>
-        <div className={`${open && "pl-20"} grid grid-cols-4 bg-black h-full w-full grow p-6 `}>
-          <div className="h-full bg-bgdark border relative bg-bgdark ">
+        <div className={`${open && "pl-20"} grid grid-cols-3 lg:grid-cols-4 bg-black h-full w-full grow p-6 `}>
+
+
+          <div className="h-full bg-bgdark border relative bg-bgdark hidden md:block">
             <div className="text-white bg-red-500 text-center p-2">Chats</div>
             <div className="p-2 flex w-full items-center border-b ">
               <div className="w-8 h-8 rounded-full bg-white "></div>
               <div className="inline text-white p-2">Cyberpunk Bot</div>
             </div>
           </div>
+
+
+
+
+
           <div className="flex flex-col h-full bg-bgdark border relative col-span-3">
             <div className="text-white bg-cyan-800 text-center p-2">
               Cyberpunk Bot

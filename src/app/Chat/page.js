@@ -9,8 +9,8 @@ const page = () => {
   return (
     <div className="min-h-screen bg-black w-full flex flex-col">
       <Navbar></Navbar>
-      <div className={`${open && "ml-20"} text-center text-white bg-black text-2xl pt-4 flex`}>
-        <div onClick={()=>{setOpen(!open);}} ><i class={`px-4 cursor-pointer fa-solid ${open ? "fa-arrow-left" :"fa-bars"}`}></i></div>
+      <div className={` text-center text-white bg-black text-2xl pt-4 flex`}>
+      <div className="z-10 px-2" onClick={()=>{setOpen(!open);}} ><i class={`px-4 cursor-pointer fa-solid ${open ? "fa-arrow-left" :"fa-bars"}`}></i></div>
       <h1 className="grow">Chating with PushpaRaj</h1>
       </div>
       <IconSideMenu isOpen={open}></IconSideMenu>

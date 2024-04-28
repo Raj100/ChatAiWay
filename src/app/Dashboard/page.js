@@ -6,14 +6,15 @@ import CharacterBox from "@/components/ui/CharacterBox";
 import Image from "next/image";
 import { useState } from "react";
 import IconSideMenu from "@/components/IconSideMenu/IconSideMenu";
+import BottomBar from "@/components/BottomBar/BottomBar";
 
 const page = () => {
   let [open,setOpen]=useState(false);
   return (
     <main className="bg-black">
       <Navbar></Navbar>
-      <div className={`${open && "ml-20"} text-center text-white bg-black text-2xl pt-4 flex`}>
-        <div onClick={()=>{setOpen(!open);}} ><i class={`px-4 cursor-pointer fa-solid ${open ? "fa-arrow-left" :"fa-bars"}`}></i></div>
+      <div className={` text-center text-white bg-black text-2xl pt-4 flex`}>
+        <div className="z-10 px-2" onClick={()=>{setOpen(!open);}} ><i class={`px-4 cursor-pointer fa-solid ${open ? "fa-arrow-left" :"fa-bars"}`}></i></div>
       <h1 className="grow">Choose Your Character</h1>
       </div>
       <IconSideMenu isOpen={open}></IconSideMenu>
@@ -47,6 +48,7 @@ const page = () => {
             invites others on a journey of exploration, sparking excitement and
             wonder in every conversation." link="Chat"/>
       </div>
+      <BottomBar></BottomBar>
       <Footer></Footer>
     </main>
   );

@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import supabase from '../supabase';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
-import Image from 'next/image';
+import RotatingImages from '@/components/RotatingImages/RotatingImages';
 
 export default function LoginPage() {
   const dispatch = useDispatch();
@@ -55,15 +55,7 @@ export default function LoginPage() {
     <div className='flex flex-col min-h-screen bg-bgdark bg-black'>
         <Navbar/>
         <div></div>
-    <div className="grid grid-cols-1 lg:grid-cols-2 grow h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <div className=''>
-        <Image
-      src="/profile.png"
-      width={500}
-      height={500}
-      alt="Picture of the author"
-    />
-        </div>
+    <div className="grid grid-cols-1 lg:grid-cols-2 grow h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8 mt-12 gap-32">
       <div className="max-w-md w-full space-y-8 bg-gray-50 border rounded-lg py-10 px-4">
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Login</h2>
@@ -110,6 +102,7 @@ export default function LoginPage() {
           </div>
         </form>
       </div>
+      <RotatingImages></RotatingImages>
       <ToastContainer />
     </div>
     {/* <Footer></Footer> */}

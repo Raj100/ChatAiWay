@@ -7,19 +7,13 @@ import "react-toastify/dist/ReactToastify.css";
 import supabase from "../supabase";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
-import Image from "next/image";
+import RotatingImages from "@/components/RotatingImages/RotatingImages";
 
 export default function page() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const myImages = [
-    "/MrByte.png",
-    "/Youthful and Energetic Character1.png",
-    "/Zippy Zoe.png",
-    "/Intellectual and Curious Character1.webp",
-    "/Empathetic and Supportive Character2.jpeg",
-  ];
+
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -65,30 +59,8 @@ export default function page() {
       <Navbar />
       <div></div>
       <div className="grid grid-cols-1 lg:grid-cols-2 grow h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8 mt-12 sm gap-32">
-        <div className="relative flex items-center justify-center ">
-        {myImages.map((src, index) => (
-                <Image
-                key={index}
-                className={` rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${index * 1}`}
-                style={{
-                    animation: `rotate 10s linear infinite ${index * 1}s`
-                  }}
-                  src={src}
-                  width={75}
-                  height={75}
-                  alt={`Small image ${index}`}
-                />
-            ))}
 
-          <Image
-          className="rounded-full z-10 w-48 h-48 sm:w-auto sm:h-auto"
-            src="/Empathetic and Supportive Character1.jpeg"
-            width={400}
-            height={400}
-            alt="Large Image"
-          />
-
-        </div>
+        <RotatingImages></RotatingImages>
 
         <div className="max-w-md w-full space-y-8 bg-gray-50 border rounded-lg py-10 px-4">
           <div>

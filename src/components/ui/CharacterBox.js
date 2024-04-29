@@ -8,6 +8,7 @@ const CharacterBox = ({
   image,
   charname,
   description,
+  link,
   className,
   containerClassName,
   animate = true,
@@ -22,6 +23,7 @@ const CharacterBox = ({
   };
 
   return (
+    <Link href={link}>
     <div className={cn("relative p-[4px] group", containerClassName)}>
       <motion.div
         variants={animate ? variants : undefined}
@@ -79,13 +81,12 @@ const CharacterBox = ({
           <p className="text-sm text-neutral-600 dark:text-neutral-400">
             {description}
           </p>
-          <Link href="Chat">
-          <button className="rounded-full p-2 text-white flex items-center space-x-1 bg-black mt-4 text-xs font-bold dark:bg-zinc-800">
+          {/* <button className="rounded-full p-2 text-white flex items-center space-x-1 bg-black mt-4 text-xs font-bold dark:bg-zinc-800">
             <span>Chat Now</span>
-          </button>
-          </Link>
+          </button> */}
         </div>
     </div>
+    </Link>
   );
 };
 

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import SideMenu from "../SideMenu/SideMenu";
 import { useAppSelector } from '../../lib/hooks';
-
+import './Navbar.css';
 
 const Navbar = () => {
   let [menu, setMenu] = useState(false);

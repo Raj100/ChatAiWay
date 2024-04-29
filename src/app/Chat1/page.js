@@ -1,64 +1,20 @@
-"use client";
+'use client';
 import React from "react";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import IconSideMenu from "@/components/IconSideMenu/IconSideMenu";
 import { useState } from "react";
-
-import styles from "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
-import {
-  MainContainer,
-  ChatContainer,
-  MessageList,
-  Message,
-  MessageInput,
-  Conversation,
-} from "@chatscope/chat-ui-kit-react";
-
 const page = () => {
-  let [open, setOpen] = useState(false);
+  let [open,setOpen]=useState(false);
   return (
     <div className="min-h-screen bg-black w-full flex flex-col">
       <Navbar></Navbar>
       <div className={` text-center text-white bg-black text-2xl pt-4 flex`}>
-        <div
-          className="z-10 px-2"
-          onClick={() => {
-            setOpen(!open);
-          }}
-        >
-          <i
-            className={`px-4 cursor-pointer fa-solid ${
-              open ? "fa-arrow-left" : "fa-bars"
-            }`}
-          ></i>
-        </div>
-        <h1 className="grow">Chating with Professor Byte</h1>
+      <div className="z-10 px-2" onClick={()=>{setOpen(!open);}} ><i className={`px-4 cursor-pointer fa-solid ${open ? "fa-arrow-left" :"fa-bars"}`}></i></div>
+      <h1 className="grow">Chating with Professor Byte</h1>
       </div>
       <IconSideMenu isOpen={open}></IconSideMenu>
-
-      <div className={`${open && "pl-20"} flex`}>
-        <Conversation name="Lilly" onClick={(evt) => console.log("clicked")} />
-
-        <div style={{ position: "relative", height: "500px" }}>
-          <MainContainer>
-            <ChatContainer>
-            <div as="ConversationHeader">My custom conversation header</div>
-              <MessageList>
-                <Message
-                  model={{
-                    message: "Hello my friend",
-                    sentTime: "just now",
-                    sender: "Joe",
-                  }}
-                />
-              </MessageList>
-              <MessageInput placeholder="Type message here" />
-            </ChatContainer>
-          </MainContainer>
-        </div>
-      </div>
-      {/* <div className={`${open && "pl-20"} grid grid-cols-3 lg:grid-cols-4 bg-black h-full w-full grow p-6 `}>
+        <div className={`${open && "pl-20"} grid grid-cols-3 lg:grid-cols-4 bg-black h-full w-full grow p-6 `}>
 
 
           <div className="h-full bg-bgdark border relative bg-bgdark hidden md:block overflow-y-scroll">
@@ -99,7 +55,7 @@ const page = () => {
             </div>
 
           </div>
-        </div> */}
+        </div>
       <Footer></Footer>
     </div>
   );

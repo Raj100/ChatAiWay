@@ -14,8 +14,8 @@ const page = () => {
     <main className="bg-black">
       <Navbar></Navbar>
       <div className={` text-center text-white bg-black text-2xl pt-4 flex`}>
-        <div className="z-10 px-2" onClick={()=>{setOpen(!open);}} ><i class={`px-4 cursor-pointer fa-solid ${open ? "fa-arrow-left" :"fa-bars"}`}></i></div>
-      <h1 className="grow">Choose Your Character</h1>
+        <div className="hidden lg:block z-10 px-2" onClick={()=>{setOpen(!open);}} ><i className={`px-4 cursor-pointer fa-solid ${open ? "fa-arrow-left" :"fa-bars"}`}></i></div>
+      <h1 className="grow font-jacquard">Choose Your Character</h1>
       </div>
       <IconSideMenu isOpen={open}></IconSideMenu>
       <div className={`${open && "ml-20"} bg-black flex flex-wrap h-full gap-8 p-4 lg:p-8 items-center justify-center`}>

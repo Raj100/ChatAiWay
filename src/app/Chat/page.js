@@ -164,20 +164,10 @@ const Page = () => {
           <Sidebar position="left" open={open} onClose={() => setOpen(false)}>
             <Search placeholder="Search..." />
             <ConversationList style={{ background: "black", color: "white" }}>
-            <Conversation name="John Doe" info="Hi there!"                   style={{ background: "black" }}>
-                <Avatar
-                  name="John Doe"
-                  src="https://via.placeholder.com/150"
-                  status="available"
-                  
-                />
-              </Conversation>
               {conversations.map((conversation, index) => (
                 <Conversation
-                style={{ background: "black", textcolor: "white",color: "white"}}
+                style={{ textcolor: "white",color: "white"}}
                   key={index}
-                  // className="text-white"
-                  // style={{}}
                   info={conversation.info}
                   lastSenderName={conversation.name}
                   name={conversation.name} 

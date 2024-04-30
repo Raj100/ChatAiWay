@@ -148,7 +148,7 @@ const Page = () => {
             setOpen(!open);
           }}
         >
-          <i className={`px-4 cursor-pointer fa-solid ${open ? "fa-arrow-left" : "fa-bars"}`}></i>
+          <i className={`px-4 cursor-pointer fa-solid ${open ? "fa-arrow-left fixed" : "fa-bars"}`}></i>
         </div>
         <h1 className="grow">Chating with Professor Byte</h1>
       </div>

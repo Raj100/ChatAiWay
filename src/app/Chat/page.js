@@ -141,16 +141,16 @@ const Page = () => {
   return (
     <div className="min-h-screen bg-black w-full flex flex-col">
       <Navbar />
-      <div className={` text-center text-white bg-black text-2xl pt-4 flex`}>
+      <div className={`text-center text-white text-2xl pt-4 flex`}>
         <div
           className="z-10 px-2"
           onClick={() => {
             setOpen(!open);
           }}
         >
-          <i className={`px-4 cursor-pointer fa-solid ${open ? "fa-arrow-left fixed" : "fa-bars"}`}></i>
+          <i className={`px-4 cursor-pointer  bg-black fa-solid ${open ? "fa-arrow-left fixed" : "fa-bars absolute"}`}></i>
         </div>
-        <h1 className="grow">Chating with Professor Byte</h1>
+        <h1 className="grow text-center">Chats</h1>
       </div>
       <IconSideMenu isOpen={open}></IconSideMenu>
 

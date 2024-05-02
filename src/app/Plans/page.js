@@ -1,7 +1,9 @@
+"use client";
 import React from "react";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import Link from "next/link";
+import Bottombar from "@/components/BottomBar/BottomBar";
 
 const page = () => {
   return (
@@ -70,6 +72,7 @@ const page = () => {
             </Link>
           </div>
         </div>
+        <Bottombar></Bottombar>
       <Footer></Footer>
     </div>
   );

@@ -9,6 +9,7 @@ import supabase from '../supabase';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
 import RotatingImages from '@/components/RotatingImages/RotatingImages';
+import Bottombar from '@/components/BottomBar/BottomBar';
 
 export default function LoginPage() {
   const dispatch = useDispatch();
@@ -111,6 +112,7 @@ export default function LoginPage() {
 
       <RotatingImages></RotatingImages>
       <ToastContainer />
+      <Bottombar></Bottombar>
     </div>
     {/* <Footer></Footer> */}
     </div>

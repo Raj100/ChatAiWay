@@ -4,7 +4,7 @@ import Footer from "../components/Footer/Footer";
 import Content from "../components/Content/Content";
 import ChatBot from "../components/ChatBot/ChatBot";
 import SideMenu from "../components/SideMenu/SideMenu";
-import BottomBar from "@/components/BottomBar";
+import BottomBar from "@/components/BottomBar/BottomBar";
 import Lamp from "@/components/ui/Lamp";
 import Meteors from "@/components/ui/Meteors";
 import RotatingImages from "@/components/RotatingImages/RotatingImages";

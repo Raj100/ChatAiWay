@@ -6,7 +6,7 @@ import CharacterBox from "@/components/ui/CharacterBox";
 import Image from "next/image";
 import { useState } from "react";
 import IconSideMenu from "@/components/IconSideMenu/IconSideMenu";
-import BottomBar from "@/components/BottomBar";
+import BottomBar from "@/components/BottomBar/BottomBar";
 
 const page = () => {
   let [open,setOpen]=useState(false);

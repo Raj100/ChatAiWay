@@ -19,13 +19,17 @@ export default function LoginPage() {
     e.preventDefault(); 
 
     try {
-      const { user, error } = await supabase.auth.signIn({ email, password });
+      let { data, error } = await supabase.auth.signInWithPassword({
+        email: email,
+        password: password,
+      })
       if (error) {
         throw error;
       }
       // Dispatch action to update user state in Redux store
-      dispatch(loginUser(user));
-      console.log('User logged in:', user);
+      dispatch(loginUser(data));
+      console.log('User email:', data.user.email);
+      console.log('User logged in:', data);
       // Show success toast
       toast.success('Login successful!', {
         position: "top-center",

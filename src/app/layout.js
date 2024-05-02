@@ -1,7 +1,8 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-// import { Providers } from "@/lib/provider";
+// import {  } from "@/lib/provider";
 import StoreProvider from "./StoreProvider";
+// import { useEffect } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 

@@ -36,11 +36,11 @@ const Navbar = () => {
           </div>
         ) : ( // If user is not authenticated
           <>
-            <Link href="/Login">
-              <button>Sign In</button>
+            <Link className="shadow-green-400" href="/Login">
+              <button className="border border-cyan-600 hover:border-2 hover:shadow-[0_0px_10px_2px_#06b6d4] p-2 rounded-lg transform hover:scale-[1.1]">Sign In</button>
             </Link>
             <Link href="/Signup">
-              <button>Sign Up</button>
+              <button className="border border-cyan-600 hover:border-2 hover:shadow-[0_0px_10px_2px_#06b6d4] p-2 rounded-lg transform hover:scale-[1.1]">Sign Up</button>
             </Link>
           </>
         )}

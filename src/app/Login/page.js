@@ -54,9 +54,10 @@ export default function LoginPage() {
   return (
     <div className='flex flex-col min-h-screen bg-bgdark bg-black'>
         <Navbar/>
-        <div></div>
-    <div className="grid grid-cols-1 lg:grid-cols-2 grow h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8 mt-12 gap-32">
-      <div className="max-w-md w-full space-y-8 bg-gray-50 border rounded-lg py-10 px-4">
+
+    <div className="grid grid-cols-1 lg:grid-cols-2 grow h-full content-center py-12 px-4 sm:px-6 lg:px-8 mt-12 sm gap-32">
+    <div className="flex items-center justify-center">
+      <div className="max-w-md w-full space-y-8 bg-gray-50 border rounded-lg py-10 px-4 content-center w-full">
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Login</h2>
         </div>
@@ -102,6 +103,8 @@ export default function LoginPage() {
           </div>
         </form>
       </div>
+      </div>
+
       <RotatingImages></RotatingImages>
       <ToastContainer />
     </div>

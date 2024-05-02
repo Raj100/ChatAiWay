@@ -13,3 +13,16 @@
 .cs-expansion-panel__icon{
     color: white !important;
 }
+
+.bg-black {
+    background-color: black;
+  }
+  
+  .bg-light-black {
+    background-color: #222;
+  }
+  .myconversation:hover {
+    background-color:  #3b3a3a;
+  }
+  
+  

@@ -20,10 +20,12 @@ module.exports = {
       },
       colors: {
         bgdark: "#1a1b1e",
+        lightblack: "#222",
       },
       animation: {
         shimmer: "shimmer 2s linear infinite",
         rotate: "rotate 10s linear infinite",
+        "meteor-effect": "meteor 5s linear infinite",
       },
       keyframes: {
         shimmer: {
@@ -41,6 +43,14 @@ module.exports = {
           to: {
             transform: "translate(-50%, -50%) rotate(360deg) translate(200px) rotate(-360deg)",
           }
+        },
+        meteor: {
+          "0%": { transform: "rotate(215deg) translateX(0)", opacity: "1" },
+          "70%": { opacity: "1" },
+          "100%": {
+            transform: "rotate(215deg) translateX(-500px)",
+            opacity: "0",
+          },
         },
       },
     },

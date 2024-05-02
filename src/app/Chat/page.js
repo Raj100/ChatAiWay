@@ -7,6 +7,8 @@ import Image from "next/image";
 // import styles from "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 import "./chat.css";
+import { useEffect } from "react";
+import { useCallback } from "react";
 import {
   MainContainer,
   ChatContainer,
@@ -33,6 +35,61 @@ const Page = () => {
   const [activeConversation, setActiveConversation] = useState("Zoe");
   const inputRef = useRef(null);
   const [value, setValue] = useState("");
+  const [sidebarVisible, setSidebarVisible] = useState(false);
+  const [sidebarStyle, setSidebarStyle] = useState({});
+  const [chatContainerStyle, setChatContainerStyle] = useState({});
+  const [conversationContentStyle, setConversationContentStyle] = useState({});
+  const [conversationAvatarStyle, setConversationAvatarStyle] = useState({});
+
+  const handleBackClick = () => setSidebarVisible(!sidebarVisible);
+
+  const handleConversationClick = useCallback(
+    (conversationName) => {
+      setActiveConversation(conversationName);
+      if (sidebarVisible) {
+        setSidebarVisible(false);
+      }
+    },
+    [sidebarVisible]
+  );
+
+  useEffect(() => {
+    if (sidebarVisible) {
+      setSidebarStyle({
+        display: "flex",
+        flexBasis: "auto",
+        width: "100%",
+        maxWidth: "100%",
+        background: "black",
+      });
+
+      setConversationContentStyle({
+        display: "flex",
+        color: "white",
+      });
+
+      setConversationAvatarStyle({
+        marginRight: "1em",
+      });
+
+      setChatContainerStyle({
+        display: "none",
+      });
+    } else {
+      setSidebarStyle({});
+      setConversationContentStyle({});
+      setConversationAvatarStyle({});
+      setChatContainerStyle({});
+    }
+  }, [
+    sidebarVisible,
+    setSidebarVisible,
+    setConversationContentStyle,
+    setConversationAvatarStyle,
+    setSidebarStyle,
+    setChatContainerStyle,
+  ]);
+
   const [messages, setMessages] = useState({
     Zoe: [
       // {
@@ -82,10 +139,10 @@ const Page = () => {
     }));
   };
 
-  const handleConversationClick = (conversationName) => {
-    setActiveConversation(conversationName);
-    setOpen(false); // Close the sidebar on conversation click
-  };
+  // const handleConversationClick = (conversationName) => {
+  //   setActiveConversation(conversationName);
+  //   setOpen(false);
+  // };
 
   const conversations = [
     {
@@ -276,10 +333,12 @@ const Page = () => {
           }}
         >
           <Sidebar
-            style={{ background: "black", color: "white" }}
+          className="bg-black"
+            // style={{ background: "black", color: "white" }}
+            style={sidebarStyle}
             position="left"
-            open={open}
-            onClose={() => setOpen(false)}
+            // open={sidebarVisible}
+            // onClose={() => setSidebarVisible(false)}
           >
             <Search
               placeholder="Search..."
@@ -290,28 +349,43 @@ const Page = () => {
             <ConversationList style={{ background: "black", color: "white" }}>
               {conversations.map((conversation, index) => (
                 <Conversation
-                  style={{ background: "black" }}
+                  onClick={() => handleConversationClick(conversation.name)}
+                  // style={{ background: "black" }}
+                  className={index % 2 === 0 ? 'bg-light-black myconversation' : 'bg-black myconversation'}
                   key={index}
-                  info={<span className="text-white">{conversation.info}</span>}
-                  lastSenderName={
-                    <span className="text-white">{conversation.name}</span>
-                  }
-                  name={<span className="text-white">{conversation.name}</span>}
-                  onClick={() => handleConversationClick(conversation.name)} // Handle conversation click
+                  // info={<span className="text-white">{conversation.info}</span>}
+                  // lastSenderName={
+                  //   <span className="text-white">{conversation.name}</span>
+                  // }
+                  // name={<span className="text-white">conversation.info</span>}
+                  // onClick={() => handleConversationClick(conversation.name)} // Handle conversation click
                 >
                   <Avatar
                     name={conversation.name}
                     src={conversation.avatar}
                     status={conversation.status}
-                    style={{ color: "white" }}
+                    style={conversationAvatarStyle}
+                  />
+                  <Conversation.Content
+                    style={conversationContentStyle}
+                    className="!text-white"
+                    info={
+                      <span className="text-white">{conversation.info}</span>
+                    }
+                    lastSenderName={
+                      <span className="text-white">{conversation.name}</span>
+                    }
+                    name={
+                      <span className="text-white">{conversation.name}</span>
+                    }
                   />
                 </Conversation>
               ))}
             </ConversationList>
           </Sidebar>
-          <ChatContainer>
+          <ChatContainer style={chatContainerStyle}>
             <ConversationHeader style={{ background: "black", color: "white" }}>
-              <ConversationHeader.Back onClick={() => setOpen1(false)} />
+              <ConversationHeader.Back onClick={handleBackClick} />
               <Avatar
                 name={activeConversation}
                 src={
@@ -321,7 +395,7 @@ const Page = () => {
               />
               <ConversationHeader.Content
                 info={
-                  <span className="text-white bg-black">
+                  <span className="text-white">
                     {
                       conversations.find(
                         (conv) => conv.name === activeConversation
@@ -330,7 +404,7 @@ const Page = () => {
                   </span>
                 }
                 userName={
-                  <span className="text-white bg-black">
+                  <span className="text-white">
                     {activeConversation}
                   </span>
                 }
@@ -343,10 +417,10 @@ const Page = () => {
             </ConversationHeader>
 
             <MessageList
-              className="!bg-black"
+              className="!bg-lightblack"
               typingIndicator={
                 <TypingIndicator
-                  className="!bg-black"
+                  className="!bg-lightblack"
                   content={`${activeConversation} is typing`}
                 />
               }
@@ -375,7 +449,8 @@ const Page = () => {
               ))}
             </MessageList>
             <MessageInput
-              className="!bg-black"
+              // className="!bg-lightblack"
+              style={{background:"#111111"}}
               placeholder="Type message here"
               onSend={handleSendMessage}
               ref={inputRef}
@@ -383,7 +458,7 @@ const Page = () => {
             />
           </ChatContainer>
           <Sidebar
-            style={{ background: "black ", color: "white" }}
+            style={{ background: "#111111", color: "white" }}
             position="right"
             open={open1}
             onClose={() => setOpen1(false)}

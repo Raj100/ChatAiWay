@@ -3,8 +3,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/utils/cn";
 import Link from "next/link";
+import Meteors from "./Meteors";
 
-export default function LampDemo() {
+export default function Lamp() {
   return (
     <LampContainer>
       <motion.h1
@@ -17,11 +18,17 @@ export default function LampDemo() {
         }}
         className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center "
       >
-        <p className="text-4xl font-medium  tracking-tight text-transparent md:text-7xl">Talk to your loved ones </p>
-        <p className="text-4xl font-medium  tracking-tight text-transparent md:text-7xl">the AI way</p>
-        <Link href="Dashboard"><button className="mt-10 inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-cyan-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-          Start Talking Now
-        </button></Link>
+        <p className="text-4xl font-medium  tracking-tight text-transparent md:text-7xl">
+          Talk to your loved ones{" "}
+        </p>
+        <p className="text-4xl font-medium  tracking-tight text-transparent md:text-7xl">
+          the AI way
+        </p>
+        <Link href="Dashboard">
+          <button className="mt-10 inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-cyan-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+            Start Talking Now
+          </button>
+        </Link>
       </motion.h1>
     </LampContainer>
   );
@@ -35,10 +42,11 @@ export const LampContainer = ({ children, className }) => {
         className
       )}
     >
+            <Meteors number={25}></Meteors>
       <div className="relative flex w-full flex-1 scale-y-125 items-center justify-center isolate z-0 ">
         <motion.div
           initial={{ opacity: 0.5, width: "15rem" }}
-          whileInView={{ opacity: 1, width: "30rem" }}
+          // whileInView={{ opacity: 1, width: "30rem" }}
           transition={{
             delay: 0.3,
             duration: 0.8,
@@ -54,7 +62,7 @@ export const LampContainer = ({ children, className }) => {
         </motion.div>
         <motion.div
           initial={{ opacity: 0.5, width: "15rem" }}
-          whileInView={{ opacity: 1, width: "30rem" }}
+          // whileInView={{ opacity: 1, width: "30rem" }}
           transition={{
             delay: 0.3,
             duration: 0.8,
@@ -73,7 +81,7 @@ export const LampContainer = ({ children, className }) => {
         <div className="absolute inset-auto z-50 h-36 w-[28rem] -translate-y-1/2 rounded-full bg-cyan-500 opacity-50 blur-3xl"></div>
         <motion.div
           initial={{ width: "8rem" }}
-          whileInView={{ width: "16rem" }}
+          // whileInView={{ width: "16rem" }}
           transition={{
             delay: 0.3,
             duration: 0.8,
@@ -83,7 +91,7 @@ export const LampContainer = ({ children, className }) => {
         ></motion.div>
         <motion.div
           initial={{ width: "15rem" }}
-          whileInView={{ width: "30rem" }}
+          whileInView={{ width: "15rem" }}
           transition={{
             delay: 0.3,
             duration: 0.8,

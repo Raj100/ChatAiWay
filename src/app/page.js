@@ -10,6 +10,13 @@ import Meteors from "@/components/ui/Meteors";
 import RotatingImages from "@/components/RotatingImages/RotatingImages";
 import Image from "next/image";
 import JoinWaitList from "@/components/JoinWaitList/JoinWaitList";
+import { Canvas } from "@react-three/fiber";
+import { Loader, OrbitControls, Stars } from "@react-three/drei";
+import { Suspense } from "react";
+import Model from "./Standing.jsx";
+import { useGLTF } from "@react-three/drei";
+import { Environment } from "@react-three/drei";
+import { AmbientLight, LoaderUtils } from "three";
 export default function Home() {
   return (
     <div className="bg-black">
@@ -19,8 +26,21 @@ export default function Home() {
       <Lamp>
       </Lamp>
       {/* <Meteors number={25} ></Meteors> */}
-
-
+      <div className="flex gap-10 p-4">
+      <div className="w-32 h-[600px] lg:w-[600px]">
+      <Canvas>
+        <ambientLight intensity={2}></ambientLight>
+        <OrbitControls></OrbitControls>
+        <Suspense fallback={LoaderUtils}>
+          <Model scale={2}></Model>
+        </Suspense>
+      </Canvas>
+      </div>
+      <div className="">
+        <h1 className="text-2xl text-white text-center">Welcome to the future of social media</h1>
+        <p className="text-white  text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit </p>
+      </div>
+      </div>
       {/* <SideMenu></SideMenu> */}
       <div className="my-20 grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-0 text-white px-2 lg:px-8 relative">
         <RotatingImages></RotatingImages>

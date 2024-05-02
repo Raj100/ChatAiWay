@@ -3,7 +3,15 @@ const http = require('http');
 const WebSocket = require('ws');
 const mongoose = require('mongoose');
 
+// Connect to MongoDB
+mongoose.connect('mongodb://localhost:27017', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+
 const db = mongoose.connection;
+
+
 
 db.on('error', (error) => console.error('MongoDB connection error:', error));
 db.once('open', () => console.log('Connected to MongoDB'));
